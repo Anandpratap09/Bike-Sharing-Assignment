@@ -1,7 +1,36 @@
-Bike-sharing is a service in which bikes are made available for shared use to individuals on a short-term basis for a price or free. Many bike share systems allow people to borrow a bike from a "dock" which is usually computer-controlled wherein the user enters the payment information, and the system unlocks it. This bike can then be returned to another dock belonging to the same system. US bike-sharing provider BikeIndia has recently suffered considerable revenue dips due to the ongoing Corona pandemic. The company is finding it very difficult to sustain itself in the current market scenario. So, it has decided to devise a mindful business plan to accelerate its revenue as soon as the ongoing lockdown ends, and the economy returns to a healthy state.In such an attempt, Boombikes aspires to understand the demand for shared bikes among the people after this ongoing quarantine situation ends across the nation due to Covid-19. They have planned this to prepare themselves to cater to people's needs once the situation improves. They want to stand out from other service providers and make huge profits.They have contracted a consulting company to understand the factors on which demand for shared bikes depends. Specifically, they want to understand the factors affecting the demand for shared bikes in the American market. The company wants to know:
-Which variables are significant in predicting shared bike demand?
-How well do those variables describe bike demands?
-Based on various meteorological surveys and people's styles, the service provider firm has gathered a large dataset on daily bike demands across the American market. This dataset is based on some factors.
+# Bike Sharing Demand: Multiple Linear Regression
 
-Business Goal:
-We must model the demand for shared bikes with the available independent variables. Management will use this information to understand how demands vary with different features. They can manipulate the business strategy to meet demand levels and customer expectations. Further, the model will be an effective way for management to understand demand dynamics in a new market.
+Explains which factors drive daily shared-bike demand in the US market, so a bike-sharing provider can plan for demand after the COVID-19 lockdown.
+
+## Questions answered
+
+- Which variables significantly predict bike demand?
+- How well do those variables explain demand?
+
+## Approach
+
+1. Visualize numeric and categorical variables against demand (`cnt`)
+2. Prepare data: dummy variables, train/test split, scaling
+3. Build the model by feature elimination, checking VIF and p-values (final model `lr_6`)
+4. Residual analysis: normality of errors, multicollinearity, linearity, homoscedasticity, independence
+5. Predict on the test set and compare train and test performance
+
+## Results
+
+| Metric | Train | Test |
+| --- | --- | --- |
+| R² | 0.833 | 0.804 |
+| Adjusted R² | 0.829 | 0.794 |
+
+The Durbin-Watson statistic is 2.085, so there is no sign of autocorrelation in the residuals. Season and month were among the strongest categorical drivers in the exploratory analysis.
+
+## Files
+
+| File | Purpose |
+| --- | --- |
+| `Bike sharing Assigment_anand.ipynb` | Full analysis |
+| `Linear_Regression_Subjective_Questions(Anand).pdf` | Written answers |
+
+## Stack
+
+Python, pandas, scikit-learn, statsmodels, matplotlib, seaborn
